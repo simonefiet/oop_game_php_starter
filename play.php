@@ -47,6 +47,28 @@
 		</form>
     </div>
 
+    <!-- 
+    Use keypress to submit answer
+    Code found here: https://css-tricks.com/snippets/javascript/javascript-keycodes/
+    -->
+    <script>
+    	document.addEventListener("keydown", function(event) {
+			console.log(event.key);
+			var keyboard = document.getElementsByClassName("key"); //Every input button has class key
+			var letter = event.key;
+			for(
+				let i = 0; 
+				i <= keyboard.length -1; 
+				i++
+			) {
+		  		let key = keyboard[i].value;
+		  		if(letter == key) {
+		  			keyboard[i].click(); //Use .click() function to prevent click. If input is disabled nothing happens
+		  		}
+		  	}
+		});
+    </script>
+
 <?php
 	//Include footer
 	include 'footer.php';
