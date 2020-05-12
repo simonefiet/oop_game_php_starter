@@ -13,12 +13,12 @@ class Phrase
 		"Designing Interfaces in PHP"
 	); //Array with phrases;
 
-	public function __construct($phrase = null, $selected = null) //EFTERSE ****
+	public function __construct($phrase = null, $selected = null)
 	{
 		if(!empty($phrase)) {
 			$this->activePhrase = $phrase;
 		} elseif (!isset($phrase)) {
-			$randPhrase = array_rand($this->phrase);
+			$randPhrase = shuffle($this->phrase);
 			$this->activePhrase = $this->phrase[$randPhrase];
 		}
 		if(!empty($selected)) {
